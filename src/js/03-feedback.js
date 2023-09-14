@@ -57,8 +57,15 @@ function saveData(event) {
 }
 
 function handleSubmit(event) {
-  event.preventDefault();
-  console.log(load(localStorageKey));
-  form.reset();
-  remove(localStorageKey);
+  if (
+    event.currentTarget.elements.email.value === '' ||
+    event.currentTarget.elements.message.value === ''
+  ) {
+    alert('All fields must be filled');
+  } else {
+    event.preventDefault();
+    console.log(load(localStorageKey));
+    form.reset();
+    remove(localStorageKey);
+  }
 }
