@@ -47,12 +47,11 @@ form.addEventListener('input', throttle(saveData, 500));
 form.addEventListener('submit', handleSubmit);
 
 function saveData() {
-  const data = {};
-  const emailValue = form.elements.email.value;
-  const messageValue = form.elements.message.value;
+  const data = {
+    email: form.elements.email.value,
+    message: form.elements.message.value,
+  };
 
-  data['email'] = emailValue;
-  data['message'] = messageValue;
   save(localStorageKey, data);
 }
 
