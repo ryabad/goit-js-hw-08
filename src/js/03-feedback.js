@@ -46,10 +46,10 @@ try {
 form.addEventListener('input', throttle(saveData, 500));
 form.addEventListener('submit', handleSubmit);
 
-function saveData(event) {
+function saveData() {
   const data = {};
-  const emailValue = event.currentTarget.elements.email.value;
-  const messageValue = event.currentTarget.elements.message.value;
+  const emailValue = form.elements.email.value;
+  const messageValue = form.elements.message.value;
 
   data['email'] = emailValue;
   data['message'] = messageValue;
@@ -57,10 +57,7 @@ function saveData(event) {
 }
 
 function handleSubmit(event) {
-  if (
-    event.currentTarget.elements.email.value === '' ||
-    event.currentTarget.elements.message.value === ''
-  ) {
+  if (form.elements.email.value === '' || form.elements.message.value === '') {
     alert('All fields must be filled');
   } else {
     event.preventDefault();
